@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="UnSplashTestSuite" parallel="methods" thread-count="2">
+    <test name="UnSplashTest">
+        <parameter name="browser" value="chrome.remote" />
+        <parameter name="application" value="unsplash" />
+        <classes>
+            <class name="core.test.java.test.Scenario1">
+            </class>
+            <class name="core.test.java.test.Scenario2">
+            </class>
+        </classes>
+    </test>
+</suite>
