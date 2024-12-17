@@ -6,13 +6,14 @@ import core.test.java.core.report.TestListener;
 import core.test.java.core.testprofile.TestProfileProperties;
 import core.test.java.dataobject.EnvironmentInfo;
 import core.test.java.dataobject.datastorage.DataStorage;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import io.qameta.allure.Allure;
+import io.qameta.allure.AllureId;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.testng.annotations.*;
+
+import java.io.ByteArrayInputStream;
+import java.util.Arrays;
 
 
 @Listeners( TestListener.class)
@@ -28,17 +29,23 @@ public class BaseTest {
 	
 	@BeforeMethod
 	@Parameters({"browser", "application"})
-	public void beforeMethod(@Optional("chrome.local") String browser, @Optional("[Your application]") String application) {
+	public void beforeMethod(@Optional("chrome.remote") String browser, @Optional("web_app") String application) {
 		DriverManager.initBrowser(browser);
 		DriverWrapper.maximize();
 		DriverWrapper.navigateToURL(EnvironmentInfo.getApplicationURL());
+		Allure.addAttachment("go to url: ",EnvironmentInfo.getApplicationURL());
+
 	}
 
 	@AfterMethod
 	public void afterMethod() {
+		final byte[] screenshot = ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
+		Allure.addAttachment(Arrays.toString(screenshot),"the result");
 		DriverWrapper.quit();
 	}
-	
+
+
+
 	@AfterSuite
 	public void afterSuite()
 	{

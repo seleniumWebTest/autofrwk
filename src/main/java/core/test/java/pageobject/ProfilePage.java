@@ -1,7 +1,7 @@
 package core.test.java.pageobject;
 import core.test.java.core.element.Element;
 import core.test.java.core.enumobject.EnumObject.*;
-import core.test.java.pageobject.accountsetting.EditProfilePage;
+
 
 
 import java.util.ArrayList;
@@ -16,11 +16,11 @@ public class ProfilePage extends BasePage{
 	private Element likeSectionGrid = new Element(likeSectionGridPath);
 	private String likeSectionImageGridXpath = "//figure[@itemprop = 'image']";
 
-	public EditProfilePage gotoEditProfilePage()
-	{		
-		editProfile.click();
-		return new EditProfilePage();
-	}
+//	public EditProfilePage gotoEditProfilePage()
+//	{
+//		editProfile.click();
+//		return new EditProfilePage();
+//	}
 	
 	public int getLikeNumber() {
 		return Integer.parseInt(likeNumber.getText().strip());

@@ -1,0 +1,25 @@
+services:
+  selenium:
+    image: selenium/standalone-chrome:4.11.0
+    container_name: selenium-chrome
+    ports:
+      - "4444:4444"  # Selenium Hub
+    networks:
+      - selenium_network
+
+  app:
+    build: .
+    container_name: selenium-cucumber-test
+    depends_on:
+      - selenium
+    environment:
+      - DISPLAY=:99
+    volumes:
+      - .:/app
+    networks:
+      - selenium_network
+    command: mvn clean test
+
+networks:
+  selenium_network:
+    driver: bridge
