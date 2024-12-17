@@ -15,7 +15,7 @@ public class Scenario1 extends BaseTest{
 		LoginPage loginPage = homePage.goToLoginPage();
 		
 		Logger.info("2. Login with Tien's account");
-		loginPage.loginWithUser("Tien");
+		loginPage.loginWithUser("account");
 		
 		Logger.info("3. Open first picture");
 		homePage.openFirstPhoto();

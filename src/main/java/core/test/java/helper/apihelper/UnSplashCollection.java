@@ -8,9 +8,7 @@ import java.util.ArrayList;
 
 public class UnSplashCollection{
 	public static void deleteCollection(String authToken, String collectionID) {
-		BaseAPI api = new BaseAPI(EnvironmentInfo.getApplicationAPIURL() + "/collections/" + collectionID, APIType.DELETE);
-		api.addHeader("Authorization", "Bearer " + authToken);
-		api.sendRequest();
+
 	}
 	
 	public static void deleteCollections(String authToken, ArrayList<String> collectionListID) {

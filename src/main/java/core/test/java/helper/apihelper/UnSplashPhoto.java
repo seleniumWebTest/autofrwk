@@ -9,9 +9,7 @@ import java.util.ArrayList;
 
 public class UnSplashPhoto{
 	public static void unlikePhoto(String authToken, String photoID) {
-		BaseAPI api = new BaseAPI(EnvironmentInfo.getApplicationAPIURL() + "/photos/" + photoID + "/like", EnumObject.APIType.DELETE);
-		api.addHeader("Authorization", "Bearer " + authToken);
-		api.sendRequest();
+
 	}
 	
 	public static void unlikePhotos(String authToken, ArrayList<String> list_photo) {
