@@ -51,17 +51,17 @@ pipeline {
             }
         }
 
-        stage('Publish Allure Report') {
-            steps {
-                script {
-                    // Publish Allure report (can be customized based on how you want to display it)
-                    allure([
-                        results: [[path: 'target/allure-results']],
-                        reportBuildPolicy: 'ALWAYS'
-                    ])
-                }
-            }
-        }
+        // stage('Publish Allure Report') {
+        //     steps {
+        //         script {
+        //             // Publish Allure report (can be customized based on how you want to display it)
+        //             allure([
+        //                 results: [[path: 'target/allure-results']],
+        //                 reportBuildPolicy: 'ALWAYS'
+        //             ])
+        //         }
+        //     }
+        // }
 
         stage('Stop Services') {
             steps {
