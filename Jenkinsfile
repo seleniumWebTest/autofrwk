@@ -42,14 +42,14 @@ pipeline {
             }
         }
 
-        stage('Generate Allure Report') {
-            steps {
-                script {
-                    // Generate Allure report (assuming Maven generates Allure results in target/allure-results)
-                    sh "docker-compose -f ${DOCKER_COMPOSE_FILE} exec app allure generate target/allure-results --clean -o target/allure-report"
-                }
-            }
-        }
+        // stage('Generate Allure Report') {
+        //     steps {
+        //         script {
+        //             // Generate Allure report (assuming Maven generates Allure results in target/allure-results)
+        //             sh "docker-compose -f ${DOCKER_COMPOSE_FILE} exec app allure generate target/allure-results --clean -o target/allure-report"
+        //         }
+        //     }
+        // }
 
         // stage('Publish Allure Report') {
         //     steps {
